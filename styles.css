@@ -1,25 +1,26 @@
-* {
-    border: 1px solid black;
+.abajo, .arriba {
+	font-size: 3em;
+}
+.abajo{
+	text-align: right;
+}
+.centro {
+	font-size: 5em;
+	text-align: center;
 }
 
-.col.arriba {
-    font-size: 38px;
-}
-
-.col.abajo {
-    font-size: 38px;
-    text-align: end;
-}
-
-
-.col.centro {
-    font-size: 100px;
-    text-align: center;
-
-}
-
-.row {
-    width: 177px;
-    height: 242px
-    display: table;
-}
+.container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+  }
+  
+  .card {
+	flex-basis: 171px;
+	height: 114px;
+	margin: 10px;
+	
+  }
+  .row.card{
+	margin-right: 20px;
+  }
