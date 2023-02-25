@@ -1,0 +1,23 @@
+* {
+    border: 1px solid black;
+}
+
+.col.arriba {
+    font-size: 38px;
+}
+
+.col.abajo {
+    font-size: 38px;
+    text-align: end;
+}
+}
+
+.col.centro {
+    font-size: 100px;
+    padding: 30px;
+
+}
+
+.container {
+    width: 177px;
+}
