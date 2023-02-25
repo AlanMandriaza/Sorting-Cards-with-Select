@@ -10,14 +10,16 @@
     font-size: 38px;
     text-align: end;
 }
-}
+
 
 .col.centro {
     font-size: 100px;
-    padding: 30px;
+    text-align: center;
 
 }
 
-.container {
+.row {
     width: 177px;
+    height: 242px
+    display: table;
 }
