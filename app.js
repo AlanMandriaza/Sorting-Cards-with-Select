@@ -14,8 +14,7 @@ const containerElement = document.querySelector('#container');
 const buttonElement = document.getElementById('buttonElement');
 
 // Agregar evento click al botón
-buttonElement.addEventListener('click', function() {
-
+function crearCarta(pintas, valores) {
   // Crear un nuevo elemento de carta
   const cartaElement = document.createElement('div');
   cartaElement.classList.add('row', 'card');
@@ -44,6 +43,46 @@ buttonElement.addEventListener('click', function() {
   cartaElement.appendChild(centroElement);
   cartaElement.appendChild(abajoElement);
 
-  // Agregar la carta al contenedor
+  // Devolver el elemento de la carta
+  return cartaElement;
+}
+buttonElement.addEventListener('click', function() {
+  // Crear una nueva carta y agregarla al contenedor
+  const cartaElement = crearCarta(pintas, valores);
   containerElement.appendChild(cartaElement);
+});
+
+
+
+
+
+////intento de multiplicar
+const textarea = document.getElementById('inputc');
+const boton = document.createElement('button');
+boton.textContent = 'Enviar resultados';
+document.body.appendChild(boton);
+
+let cartaElement;
+let cartasGeneradas = [];
+let historial = [];
+
+boton.addEventListener('click', function() {
+  const cantidad = parseInt(textarea.value);
+
+  for (let i = 0; i < cantidad; i++) {
+    cartaElement = crearCarta(pintas, valores);
+    cartasGeneradas.push(cartaElement);
+    historial.push(cartaElement);
+  }
+
+  // Mostrar todas las cartas en el contenedor
+  containerElement.innerHTML = '';
+
+  cartasGeneradas.forEach(function(carta) {
+    containerElement.appendChild(carta);
+  });
+
+  historial.forEach(function(carta) {
+    containerElement.appendChild(carta.cloneNode(true));
+  });
 });
