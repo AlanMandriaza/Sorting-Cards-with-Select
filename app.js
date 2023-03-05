@@ -34,7 +34,7 @@ function crearCarta(pintas, valores) {
   abajoElement.textContent = pintaAleatoria.simbolo;
   abajoElement.style.color = pintaAleatoria.color;
 
-  // Agregar los elementos a la carta
+ 
   cartaElement.appendChild(arribaElement);
   cartaElement.appendChild(centroElement);
   cartaElement.appendChild(abajoElement);
