@@ -82,25 +82,30 @@ boton.addEventListener('click', function() {
 // Agregar evento click al botón Sort
 const sortButton = document.getElementById('sortButton');
 sortButton.addEventListener('click', function() {
-  // Ordenar las cartas usando Bubble Sort
-  for (let i = 0; i < cartasGeneradas.length; i++) {
-    for (let j = 0; j < cartasGeneradas.length - 1; j++) {
-      const cartaActual = cartasGeneradas[j];
-      const cartaSiguiente = cartasGeneradas[j + 1];
+  // Ordenar las cartas usando Selection Sort
+  for (let i = 0; i < cartasGeneradas.length - 1; i++) {
+    let indiceMin = i;
+    for (let j = i + 1; j < cartasGeneradas.length; j++) {
+      const cartaActual = cartasGeneradas[indiceMin];
+      const cartaComprobar = cartasGeneradas[j];
       const valorActual = cartaActual.querySelector('.centro').textContent;
-      const valorSiguiente = cartaSiguiente.querySelector('.centro').textContent;
-      if (valores.indexOf(valorActual) > valores.indexOf(valorSiguiente)) {
-        cartasGeneradas[j] = cartaSiguiente;
-        cartasGeneradas[j + 1] = cartaActual;
-
-        // Mostrar las cartas después de cada movimiento
-        setTimeout(() => {
-          containerElement.innerHTML = '';
-          cartasGeneradas.forEach(function(carta) {
-            containerElement.appendChild(carta);
-          });
-        }, 100);
+      const valorComprobar = cartaComprobar.querySelector('.centro').textContent;
+      if (valores.indexOf(valorActual) > valores.indexOf(valorComprobar)) {
+        indiceMin = j;
       }
+    }
+    if (indiceMin != i) {
+      let temp = cartasGeneradas[i];
+      cartasGeneradas[i] = cartasGeneradas[indiceMin];
+      cartasGeneradas[indiceMin] = temp;
+
+      // Mostrar las cartas después de cada movimiento
+      setTimeout(() => {
+        containerElement.innerHTML = '';
+        cartasGeneradas.forEach(function(carta) {
+          containerElement.appendChild(carta);
+        });
+      }, 100);
     }
   }
 
